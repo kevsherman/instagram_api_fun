@@ -1,5 +1,13 @@
-$(document).ready(function(){
+function bindButtons(){
+  $('button.city').on("click", function(){
+      url = $(this).data("id");
+      $.getJSON(url, function(data){
+        console.log(data);
+      })
+    });
+}
 
+$(document).ready(function(){
   $('form#search').submit(function(event){
     $('.city').remove();
     var url = "http://autocomplete.wunderground.com/aq?query=";
@@ -10,9 +18,8 @@ $(document).ready(function(){
 
       $cityArray = $(data.RESULTS);
       CityViews.city($cityArray)
+      bindButtons();
     });
-
-    // var $maindiv = $('#main');
 
     event.preventDefault();
 
