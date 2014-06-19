@@ -1,11 +1,3 @@
-function bindButtons(){
-  $('button.city').on("click", function(){
-      url = $(this).data("id");
-      $.getJSON(url, function(data){
-        console.log(data);
-      })
-    });
-}
 
 $(document).ready(function(){
   $('form#search').submit(function(event){
@@ -25,3 +17,12 @@ $(document).ready(function(){
 
    });
 });
+
+function bindButtons(){
+  $('button.city').on("click", function(){
+      url = $(this).data("id");
+      $.getJSON(url, function(data){
+        console.log(url);
+      })
+    });
+}
